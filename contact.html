@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNGTechCo | Contact</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+<header class="site-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            <img src="assets/img/logo2.jpeg" alt="PNGTechCo Logo">
+            <span>PNGTechCo</span>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+    </div>
+</header>
+
+<main>
+    <section class="page-hero">
+        <div class="container">
+            <h1>Contact PNGTechCo</h1>
+            <p>Let’s talk about your project, design or ICT needs.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container two-column">
+            <div>
+                <h2>Send us a message</h2>
+
+                <!-- SUCCESS / ERROR MESSAGES -->
+                <?php if (isset($_GET['status']) && $_GET['status'] === 'success'): ?>
+                    <div class="alert success">Thank you, your message has been sent.</div>
+                <?php elseif (isset($_GET['status']) && $_GET['status'] === 'error'): ?>
+                    <div class="alert error">Sorry, something went wrong. Please try again.</div>
+                <?php endif; ?>
+
+                <form class="contact-form" action="backend/contact_process.php" method="POST">
+                    <label for="name">Full Name*</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email Address*</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="phone">Phone / WhatsApp</label>
+                    <input type="text" id="phone" name="phone">
+
+                    <label for="service">Service Required*</label>
+                    <select id="service" name="service" required>
+                        <option value="">-- Select a service --</option>
+                        <option value="Graphic Design">Graphic Design</option>
+                        <option value="Logo Design">Logo Design</option>
+                        <option value="CV Design">CV / Resume Design</option>
+                        <option value="Ticketing">Ticketing & Printing Layout</option>
+                        <option value="Hardware Services">Hardware Services</option>
+                        <option value="Web Development">Web Development (Full Stack)</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="message">Message / Project Details*</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit" class="btn primary-btn">Send Message</button>
+                </form>
+            </div>
+
+            <div>
+                <h2>Contact Details</h2>
+                <p><strong>PNGTechCo</strong></p>
+                <p>P.O Box 1324, Waigani, NCD, Port Moresby</p>
+                <p>WhatsApp / Phone: <strong>78337326</strong></p>
+                <p>Email: <strong>masomanu23@gmail.com</strong> (update if needed)</p>
+                <p>We are based in Port Moresby and can also support clients in other provinces online.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div class="container footer-inner">
+        <p>&copy; <span id="year"></span> PNGTechCo. All rights reserved.</p>
+        <p>Port Moresby, Papua New Guinea</p>
+    </div>
+</footer>
+</body>
+</html>
